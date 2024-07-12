@@ -1,4 +1,4 @@
-# Virtual_Try_On_Platform
+# Virtual-Try-on-Platform
 A virtual try-on platform uses computer vision to allow users to see how clothing, accessories, or makeup will look on them in real-time. By analyzing images or videos, it overlays virtual items onto the user's body or face, enhancing the shopping experience by providing a realistic preview.
 
 A virtual try-on platform is an advanced application that allows users to visualize how clothing or accessories would look on them without physically trying them on. This technology leverages computer vision, augmented reality (AR), and machine learning to create a realistic experience for users. Here's a detailed explanation of how such a platform typically works and the role of the code provided in creating a basic version of a virtual try-on system.
@@ -75,8 +75,7 @@ Shirt Overlay Logic
         imgShirt = cv2.imread(os.path.join(shirtFolderPath, listShirts[imageNumber]), cv2.IMREAD_UNCHANGED)
 
         widthOfShirt = int((lm11[0] - lm12[0]) * fixedRatio)
-        imgShirt = cv2.resize(imgShirt, (widthOfShirt, int(widthOfShirt * 
-        shirtRatioHeightWidth)))
+        imgShirt = cv2.resize(imgShirt, (widthOfShirt, int(widthOfShirt * shirtRatioHeightWidth)))
         currentScale = (lm11[0] - lm12[0]) / 190
         offset = int(44 * currentScale), int(48 * currentScale)
 
@@ -93,7 +92,7 @@ User Interaction for Shirt Selection
         img = cvzone.overlayPNG(img, imgButtonRight, (1074, 293))
         img = cvzone.overlayPNG(img, imgButtonLeft, (72, 293))
 
-         if lmList[16][1] < 300:
+        if lmList[16][1] < 300:
             counterRight += 1
             cv2.ellipse(img, (139, 360), (66, 66), 0, 0,
                         counterRight * selectionSpeed, (0, 255, 0), 20)
@@ -114,7 +113,7 @@ User Interaction for Shirt Selection
             counterRight = 0
             counterLeft = 0
 
-            Overlays navigation buttons for shirt selection.
+Overlays navigation buttons for shirt selection.
 Checks for hand positions to increase counters for shirt selection.
 Changes the shirt image based on user interaction (hand positions).
 
@@ -126,3 +125,9 @@ Displays the processed video frame with the overlaid shirt and interaction butto
 
 
 This code demonstrates the basic functionality of a virtual try-on system using pose detection and image overlay techniques. The user can see how different shirts look on them in real-time, and interact with the system to change the shirts. Advanced versions of such platforms may include more sophisticated pose detection, 3D modeling, better user interaction methods, and integration with e-commerce systems for a complete virtual shopping experience.
+
+
+
+
+
+
